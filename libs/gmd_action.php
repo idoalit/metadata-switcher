@@ -14,8 +14,8 @@
 global $dbs;
 
 if (isset($_POST['gmd_lama']) && isset($_POST['gmd_baru'])) {
-    $id_lama = utility::filterData('gmd_lama', 'post', true, true, true);
-    $id_baru = utility::filterData('gmd_baru', 'post', true, true, true);
+    $id_lama = (int)utility::filterData('gmd_lama', 'post', true, true, true);
+    $id_baru = (int)utility::filterData('gmd_baru', 'post', true, true, true);
     // build sql query
     $sql_switch = "UPDATE `biblio` SET `gmd_id` = '$id_baru' WHERE `gmd_id` = '$id_lama';";
     if ($dbs->query($sql_switch)) {
